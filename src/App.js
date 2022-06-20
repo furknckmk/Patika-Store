@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import {View, Text, FlatList, StyleSheet,ScrollView} from 'react-native';
+import {View, Text, FlatList, StyleSheet} from 'react-native';
+import SearchBar from './components/SearchBar';
 import StoreCard from './components/StoreCard';
 import patikastore_data from './patikastore_data.json';
 
@@ -9,7 +10,9 @@ function App() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>PATIKASTORE</Text>
+
    <FlatList
+   ListHeaderComponent={() => (<SearchBar />)}
         numColumns={2}
         data ={patikastore_data}
         renderItem ={renderItemss}
@@ -24,7 +27,7 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
     backgroundColor: '#fff',
-paddingTop: 5 ,},
+paddingTop: 5 },
     title: {fontWeight: 'bold',
     fontSize: 35,
     textAlign: 'left',
